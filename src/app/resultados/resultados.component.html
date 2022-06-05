@@ -1,35 +1,44 @@
 <div class="background-resultados">
   <header>
     <div class="d-flex fundo-header">
-      <h1>Resultados</h1>
+      <h1>Resultados Loteria Federal</h1>
+      <div class="d-flex loteria-links">
+        <a href="" class="link-lotofacil"><span class="lotofacil">Lotofácil</span></a>
+        <a href="" class="links-a"><span class="lotomania">Lotomania</span></a>
+        <a href="" class="links-a"><span class="quina">Quina</span></a>
+        <a href="" class="links-a"><span class="megasena">Mega-Sena</span></a>
+      </div>
     </div>
   </header>
   <main>
-    <div class="box-resultados">
-      <div class="selecao-jogos">
-        <button class="btn-selecao lotofacil">Lotofácil</button>
-        <button class="btn-selecao lotomania">Lotomania</button>
-        <button class="btn-selecao quina">Quina</button>
-        <button class="btn-selecao megasena">MegaSena</button>
+    <div class="d-flex box-titulo-busca">
+      <div class="d-flex concurso-data">
+        <h2>
+          Concurso: <span>{{ lotofacil.numero }}</span>
+        </h2>
+        <h2>
+          Data do Sorteio: <span>{{ lotofacil.dataApuracao }}</span>
+        </h2>
       </div>
       <div class="d-flex busca-concurso">
         <input id="n-concurso" type="text" placeholder="Buscar por concurso" />
         <button (click)="buscarConcurso()" class="btn-buscar">Buscar</button>
       </div>
+    </div>
+    <div class="box-resultados">
+      <!-- <div class="selecao-jogos">
+        <button class="btn-selecao lotofacil">Lotofácil</button>
+        <button class="btn-selecao lotomania">Lotomania</button>
+        <button class="btn-selecao quina">Quina</button>
+        <button class="btn-selecao megasena">MegaSena</button>
+      </div> -->
+      
       <div class="d-flex box-dezenas-ganhadores">
         <div class="d-flex dezenas-ganhadores dezenas-sorteadas">
-          <div class="d-flex concurso-data">
-            <h2>
-              Concurso: <span>{{ lotofacil.numero }}</span>
-            </h2>
-            <h2>
-              Data do Sorteio: <span>{{ lotofacil.dataApuracao }}</span>
-            </h2>
-          </div>
           <h2 class="titulo-dezenas">Dezenas Sorteadas</h2>
           <div class="d-flex numeros-sorteados">
             <ng-container *ngFor="let numeros of lotofacil.listaDezenas">
-              <p>{{numeros}}</p>
+              <p>{{ numeros }}</p>
             </ng-container>
           </div>
         </div>
