@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_LOTOFACIL: 'https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil',
+  API_LOTOMANIA: 'https://servicebus2.caixa.gov.br/portaldeloterias/api/lotomania',
+  API_QUINA: 'https://servicebus2.caixa.gov.br/portaldeloterias/api/quina',
+  API_MEGASENA: 'https://servicebus2.caixa.gov.br/portaldeloterias/api/megasena'
 };
 
 /*
