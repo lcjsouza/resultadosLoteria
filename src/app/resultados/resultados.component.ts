@@ -13,7 +13,7 @@ export class ResultadosComponent implements OnInit {
 
   constructor(public resultados: ResultadosService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.ultimoConcurso()
   }
 

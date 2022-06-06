@@ -3,7 +3,9 @@
     <div class="d-flex fundo-header">
       <h1>Resultados Loteria Federal</h1>
       <div class="d-flex loteria-links">
-        <a href="" class="link-lotofacil"><span class="lotofacil">Lotofácil</span></a>
+        <a href="" class="link-lotofacil"
+          ><span class="lotofacil">Lotofácil</span></a
+        >
         <a href="" class="links-a"><span class="lotomania">Lotomania</span></a>
         <a href="" class="links-a"><span class="quina">Quina</span></a>
         <a href="" class="links-a"><span class="megasena">Mega-Sena</span></a>
@@ -26,13 +28,6 @@
       </div>
     </div>
     <div class="box-resultados">
-      <!-- <div class="selecao-jogos">
-        <button class="btn-selecao lotofacil">Lotofácil</button>
-        <button class="btn-selecao lotomania">Lotomania</button>
-        <button class="btn-selecao quina">Quina</button>
-        <button class="btn-selecao megasena">MegaSena</button>
-      </div> -->
-      
       <div class="d-flex box-dezenas-ganhadores">
         <div class="d-flex dezenas-ganhadores dezenas-sorteadas">
           <h2 class="titulo-dezenas">Dezenas Sorteadas</h2>
@@ -43,7 +38,13 @@
           </div>
         </div>
         <div class="dezenas-ganhadores ganhadores">
-          <h2>Ganhadores</h2>
+          <h2>Premiação</h2>
+          <ng-container *ngFor="let premios of lotofacil.listaRateioPremio">
+            <div class="info-ganhadores">
+              <p>{{premios.descricaoFaixa}}</p>
+              <p>{{premios.numeroDeGanhadores}} aposta ganhadora, R$ {{premios.valorPremio}}</p>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
