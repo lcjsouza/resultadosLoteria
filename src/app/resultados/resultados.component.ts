@@ -10,12 +10,15 @@ import * as $ from 'jquery';
 })
 export class ResultadosComponent implements OnInit {
   lotofacil: any;
+  
 
   constructor(public resultados: ResultadosService) { }
 
   ngOnInit() {
     this.ultimoConcurso()
   }
+
+  
 
   ultimoConcurso(){
     this.resultados.getLotofacil()

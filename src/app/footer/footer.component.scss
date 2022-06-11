@@ -1,0 +1,21 @@
+@import '../app.component.scss';
+
+
+.footer-sorteio {
+  background-color: #fff;
+  height: 6rem;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000066;
+  margin-top: 3rem;
+
+  p {
+    margin: 0;
+  }
+}

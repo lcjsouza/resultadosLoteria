@@ -1,0 +1,33 @@
+.background-resultados {
+  background: linear-gradient(123.97deg, #0065B7 0%, #1591B3 100%);
+}
+
+$color-lotofacil: #930989;
+$color-lotomania: #F78100;
+$color-quina: #260085;
+$color-megasena: #209869;
+$color-grey-medium: #c7c9c7;
+
+/* BREAKPOINTS */
+$bp-medium: 768px;
+$bp-medium-large: 992px;
+$bp-4K: 1900px;
+
+@mixin fromMedium {
+  @media only screen and (min-width: $bp-medium) {
+    @content;
+  }
+}
+
+@mixin fromMediumLarge {
+  @media only screen and (min-width: $bp-medium-large) {
+    @content;
+  }
+}
+
+@mixin from4K {
+  @media only screen and (min-width: $bp-4K) {
+    @content;
+  }
+}
+

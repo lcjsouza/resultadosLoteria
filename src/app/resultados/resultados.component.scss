@@ -1,177 +1,120 @@
-.background-resultados {
-  background: linear-gradient(123.97deg, #0065B7 0%, #1591B3 100%);
-  height: 100vh;
-}
-
-.fundo-header {
-  width: 100vw;
-  height: 8rem;
-  background: #fff;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #C4C4C4;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  h1 {
-    font-weight: 700;
-    font-size: 2.5rem;
-    line-height: 4.7rem;
-    color: #000066;
-    margin: 0 0 0 4rem;
-  }
-
-  .loteria-links {
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 4rem;
-    width: 30%;
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: 3rem;
-
-    .link-lotofacil {
-      height: 8rem;
-      width: 13rem;
-      background: #930989;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .lotofacil {
-      color: #FFFFFF;
-    }
-
-    .lotomania {
-      font-size: 2rem;
-      color: #000066;
-      // border: 1px solid #F78100;
-    }
-
-    .quina {
-      font-size: 2rem;
-      color: #000066;
-      // border: 1px solid #260085;
-    }
-
-    .megasena {
-      font-size: 2rem;
-      color: #000066;
-      // border: 1px solid #209869;
-    }
-  }
-
-}
+@import '../app.component.scss';
 
 .box-titulo-busca {
   background: #FFFFFF;
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  margin: 4rem;
-  height: 12rem;
-  align-items: center;
-  justify-content: space-between;
+  margin: 3rem 2rem;
+  height: 5rem;
   font-weight: 500;
 
-  .concurso-data {
-    margin-left: 6rem;
-
-    h2 {
-      color: #000066;
-      text-align: center;
-      padding: 0 2rem;
-      font-size: 2rem;
-      line-height: 3rem;
-    }
-
-    span {
-      padding-left: .5rem;
-      font-size: 2rem;
-      line-height: 3rem;
-    }
+  h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    margin: auto;
   }
 
+  @include fromMedium {
+    align-items: center;
+    justify-content: space-between;
+    height: 12rem;
+  }
+}
+
+.box-resultados {
+  margin: 0 2rem;
+  background: #FFFFFF;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+
   .busca-concurso {
-    margin-right: 6rem;
+    padding: 3rem 2rem;
+    flex-direction: column;
 
     input {
       border: 1px solid #D9D9D9;
-      width: 24rem;
-      height: 4rem;
-      font-size: 2rem;
-      line-height: 3rem;
-      padding-left: 2rem;
+      height: 3rem;
+      padding-left: 1rem;
     }
 
     input::placeholder {
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
-      font-size: 2rem;
-      line-height: 2rem;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
       color: #D9D9D9;
     }
 
     .btn-buscar {
-      margin-left: 1rem;
-      width: 12rem;
-      height: 4rem;
+      margin-top: 1rem;
+      height: 3rem;
       background: #F7941E;
       border: 1px solid #F7941E;
       border-radius: 2.5rem;
       font-weight: 500;
-      font-size: 2rem;
-      line-height: 2rem;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
       color: #FFFFFF;
     }
   }
-}
 
-.box-resultados {
-  height: 80rem;
-  margin: 0 4rem;
-  background: #FFFFFF;
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 2rem;
+  .concurso-data {
+    flex-direction: column;
+
+    h2 {
+      margin: 0 2rem .5rem;
+      color: #000066;
+      font-weight: 500;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+    }
+
+    span {
+      padding-left: .5rem;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+    }
+  }
 
   .box-dezenas-ganhadores {
-    margin: 0 6rem;
-    justify-content: space-between;
+    padding: 3rem 2rem;
+    flex-direction: column;
 
     .dezenas-ganhadores {
       flex-direction: column;
       border: 1px solid #C4C4C4;
       border-radius: 10px;
       box-sizing: border-box;
-      margin-top: 5rem;
-      width: 40vw;
-      height: 45rem;
 
       .titulo-dezenas {
         text-align: center;
-        margin: 3rem 0 5rem;
-        font-weight: 500;
-        font-size: 2rem;
-        line-height: 2.5rem;
+        margin: 2rem 0;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
         color: #000066;
       }
 
       .numeros-sorteados {
         align-items: center;
         align-content: flex-start;
+        justify-content: center;
         flex-wrap: wrap;
         height: 100%;
-        margin: 3rem;
+        width: 100%;
+        margin-bottom: 1rem;
 
         p {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 7rem;
-          height: 7rem;
-          margin: 0 1.5rem 2rem;
+          width: 4rem;
+          height: 4rem;
+          margin: 0 .5rem 1rem;
           padding: 2rem;
           font-weight: 700;
-          font-size: 2.5rem;
+          font-size: 1.2rem;
           border-radius: 50%;
           border: 1px solid rgba(0, 0, 0, 0.493);
           color: #fff;
@@ -181,35 +124,181 @@
     }
 
     .ganhadores {
-      h2 {
-        margin: 3rem 0;
-        font-weight: 500;
-        font-size: 2rem;
-        line-height: 2rem;
-        color: #000066;
-        text-align: center;
+      margin-top: 3rem;
+
+      .proximo-concurso {
+        margin-top: 4rem;
       }
 
       .info-ganhadores {
-        margin: 2rem 0 0 3rem;
+        margin: 0 2rem 2rem;
+        text-align: center;
 
         p {
           margin: 0;
           font-style: normal;
-          font-weight: 700;
-          font-size: 2rem;
-          line-height: 2rem;
+          font-weight: 500;
+          font-size: 1.2rem;
+          line-height: 1.4rem;
           color: #000066;
         }
 
-        p:last-child{
-          margin-top: 0.5rem;
+        p:last-child {
           font-weight: 300;
         }
 
 
       }
+
+      .info-concurso {
+        margin-bottom: 1rem;
+
+        label {
+          margin-bottom: 0.5rem;
+          font-size: 1.4rem;
+          line-height: 1.4rem;
+          color: #000066;
+          font-weight: 700;
+        }
+
+        p {
+          margin-top: 0;
+          font-weight: 300;
+        }
+
+      }
+    }
+
+    .mais-informacoes {
+      margin: 3rem 0;
     }
 
   }
+
+  @include fromMediumLarge {
+
+    .busca-concurso {
+      margin-right: 6rem;
+
+      input {
+        border: 1px solid #D9D9D9;
+        width: 24rem;
+        height: 4rem;
+        font-size: 2rem;
+        line-height: 3rem;
+        padding-left: 2rem;
+      }
+
+      input::placeholder {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 2rem;
+        line-height: 2rem;
+        color: #D9D9D9;
+      }
+
+      .btn-buscar {
+        margin-left: 1rem;
+        width: 12rem;
+        height: 4rem;
+        background: #F7941E;
+        border: 1px solid #F7941E;
+        border-radius: 2.5rem;
+        font-weight: 500;
+        font-size: 2rem;
+        line-height: 2rem;
+        color: #FFFFFF;
+      }
+    }
+
+    .concurso-data {
+      flex-direction: row;
+
+      h2 {
+        text-align: center;
+        padding: 0 2rem;
+        font-size: 2rem;
+        line-height: 3rem;
+      }
+
+      span {
+        padding-left: .5rem;
+        font-size: 2rem;
+        line-height: 3rem;
+      }
+    }
+
+    .box-dezenas-ganhadores {
+      margin: 0 6rem;
+      justify-content: space-between;
+
+      .dezenas-ganhadores {
+        flex-direction: column;
+        border: 1px solid #C4C4C4;
+        border-radius: 10px;
+        box-sizing: border-box;
+        margin-top: 5rem;
+        width: 40vw;
+        height: 45rem;
+
+        .titulo-dezenas {
+          text-align: center;
+          margin: 3rem 0 5rem;
+          font-weight: 500;
+          font-size: 2rem;
+          line-height: 2.5rem;
+          color: #000066;
+        }
+
+        .numeros-sorteados {
+          align-items: center;
+          align-content: flex-start;
+          flex-wrap: wrap;
+          height: 100%;
+          margin: 3rem;
+
+          p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 7rem;
+            height: 7rem;
+            margin: 0 1.5rem 2rem;
+            padding: 2rem;
+            font-weight: 700;
+            font-size: 2.5rem;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.493);
+            color: #fff;
+            background: #930989;
+          }
+        }
+      }
+
+      .ganhadores {
+
+        .info-ganhadores {
+          margin: 2rem 0 0 3rem;
+
+          p {
+            margin: 0;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 2rem;
+            color: #000066;
+          }
+
+          p:last-child {
+            margin-top: 0.5rem;
+            font-weight: 300;
+          }
+
+
+        }
+      }
+
+    }
+  }
 }
+
