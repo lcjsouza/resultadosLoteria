@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { ResultadosComponent } from './resultados/resultados.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { LotofacilComponent } from './resultados/lotofacil/lotofacil.component';
+import { LotomaniaComponent } from './resultados/lotomania/lotomania.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ResultadosComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LotofacilComponent,
+    LotomaniaComponent
   ],
   imports: [
     BrowserModule,

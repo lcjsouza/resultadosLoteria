@@ -1,0 +1,75 @@
+<main>
+  <div class="d-flex box-titulo-busca">
+    <h1>{{ lotofacil.tipoJogo }}</h1>
+  </div>
+  <div class="box-resultados">
+    <div class="d-flex busca-concurso">
+      <input id="n-concurso" type="text" placeholder="Buscar por concurso" />
+      <button (click)="buscarConcurso()" class="btn-buscar">Buscar</button>
+    </div>
+    <div class="d-flex concurso-data">
+      <h2>
+        Concurso: <span>{{ lotofacil.numero }}</span>
+      </h2>
+      <h2>
+        Data do Sorteio: <span>{{ lotofacil.dataApuracao }}</span>
+      </h2>
+    </div>
+    <div class="d-flex box-dezenas-ganhadores">
+      <div class="d-flex dezenas-ganhadores">
+        <h2 class="titulo-dezenas">Dezenas Sorteadas</h2>
+        <div class="d-flex numeros-sorteados">
+          <ng-container *ngFor="let numeros of lotofacil.listaDezenas">
+            <p>{{ numeros }}</p>
+          </ng-container>
+        </div>
+      </div>
+      <div class="dezenas-ganhadores ganhadores">
+        <h2 class="titulo-dezenas">Premiação</h2>
+        <ng-container *ngFor="let premios of lotofacil.listaRateioPremio">
+          <div class="info-ganhadores">
+            <p>{{ premios.descricaoFaixa }}</p>
+            <p>
+              {{ premios.numeroDeGanhadores }} aposta ganhadora, R$
+              {{ premios.valorPremio }}
+            </p>
+          </div> </ng-container
+        >
+      </div>
+      <div class="dezenas-ganhadores ganhadores">
+        <!-- INFORMAÇÕES DO CONCURSO -->
+        <h2 class="titulo-dezenas">Informações do Concurso</h2>
+        <div class="info-ganhadores info-concurso">
+          <label>Município vencedor</label>
+          <ng-container
+            *ngFor="let infoConcurso of lotofacil.listaMunicipioUFGanhadores"
+          >
+            <p>{{ infoConcurso.municipio }} - {{ infoConcurso.uf }}</p>
+          </ng-container>
+        </div>
+        <div class="info-ganhadores info-concurso">
+          <label>Arrecadação Total</label>
+          <p>R$ {{ lotofacil.valorArrecadado }}</p>
+        </div>
+        <div class="info-ganhadores info-concurso">
+          <label>Acumulado para Sorteio Especial</label>
+          <p>R$ {{ lotofacil.valorAcumuladoConcursoEspecial }}</p>
+        </div>
+        <!-- PRÓXIMO CONCURSO -->
+        <h2 class="titulo-dezenas proximo-concurso">Próximo Concurso</h2>
+        <div class="info-ganhadores info-concurso">
+          <label>Número</label>
+          <p>{{ lotofacil.numeroConcursoProximo }}</p>
+        </div>
+        <div class="info-ganhadores info-concurso">
+          <label>Data</label>
+          <p>{{ lotofacil.dataProximoConcurso }}</p>
+        </div>
+        <div class="info-ganhadores info-concurso">
+          <label>Estimativa de prêmio</label>
+          <p>R$ {{ lotofacil.valorEstimadoProximoConcurso }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
