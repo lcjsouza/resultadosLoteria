@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LotofacilComponent } from './resultados/lotofacil/lotofacil.component';
 import { LotomaniaComponent } from './resultados/lotomania/lotomania.component';
+import { QuinaComponent } from './resultados/quina/quina.component';
+import { MegasenaComponent } from './resultados/megasena/megasena.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LotomaniaComponent } from './resultados/lotomania/lotomania.component';
     HeaderComponent,
     FooterComponent,
     LotofacilComponent,
-    LotomaniaComponent
+    LotomaniaComponent,
+    QuinaComponent,
+    MegasenaComponent
   ],
   imports: [
     BrowserModule,

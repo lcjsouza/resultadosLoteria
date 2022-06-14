@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { ResultadosService } from '../resultados.service';
-import * as $ from 'jquery';
 import Swal from 'sweetalert2';
+import { ResultadosService } from '../resultados.service';
 
 @Component({
-  selector: 'app-lotofacil',
-  templateUrl: './lotofacil.component.html',
-  styleUrls: ['./lotofacil.component.scss']
+  selector: 'app-megasena',
+  templateUrl: './megasena.component.html',
+  styleUrls: ['./megasena.component.scss']
 })
-export class LotofacilComponent implements OnInit {
-  lotofacil: any;
+export class MegasenaComponent implements OnInit {
+  megasena: any;
   spinner: boolean = false;
-  
+
   constructor(public resultados: ResultadosService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.ultimoConcurso();
   }
 
   ultimoConcurso(){
     this.spinner = true;
-    this.resultados.getLotofacil()
+    this.resultados.getMegaSena()
     .then(response => {
-      this.lotofacil = response;
+      this.megasena = response;
       this.spinner = false;
       console.log(response);
     })
@@ -41,16 +40,16 @@ export class LotofacilComponent implements OnInit {
     if (concurso === '' || concurso === null) {
       console.log('Vazio');
     }else{
-      this.lotofacilConcurso(String(concurso));
+      this.megasenaConcurso(String(concurso));
     }
     
   }
 
-  lotofacilConcurso(numero: string){
+  megasenaConcurso(numero: string){
     this.spinner = true;
-    this.resultados.getLotofacilSorteio(numero)
+    this.resultados.getMegaSenaSorteio(numero)
     .then(response => {
-      this.lotofacil = response;
+      this.megasena = response;
       this.spinner = false;
       console.log(response);
     })

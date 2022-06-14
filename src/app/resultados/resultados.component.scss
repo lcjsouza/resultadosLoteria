@@ -93,7 +93,7 @@
         text-align: center;
         margin: 2rem 0;
         font-weight: 700;
-        font-size: 1.5rem;
+        font-size: 2rem;
         line-height: 1.8rem;
         color: #000066;
       }
@@ -116,7 +116,7 @@
           margin: 0 .5rem 1rem;
           padding: 2rem;
           font-weight: 700;
-          font-size: 1.2rem;
+          font-size: 1.5rem;
           border-radius: 50%;
         }
       }
@@ -138,13 +138,14 @@
           margin: 0;
           font-style: normal;
           font-weight: 500;
-          font-size: 1.2rem;
+          font-size: 1.5rem;
           line-height: 1.4rem;
           color: #000066;
         }
 
         p:last-child {
           font-weight: 300;
+          margin-top: 5px;
         }
 
 
@@ -155,8 +156,8 @@
 
         label {
           margin-bottom: 0.5rem;
-          font-size: 1.4rem;
-          line-height: 1.4rem;
+          font-size: 1.8rem;
+          line-height: 2rem;
           color: #000066;
           font-weight: 700;
         }

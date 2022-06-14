@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { ResultadosService } from '../resultados.service';
-import * as $ from 'jquery';
 import Swal from 'sweetalert2';
+import { ResultadosService } from '../resultados.service';
 
 @Component({
-  selector: 'app-lotofacil',
-  templateUrl: './lotofacil.component.html',
-  styleUrls: ['./lotofacil.component.scss']
+  selector: 'app-quina',
+  templateUrl: './quina.component.html',
+  styleUrls: ['./quina.component.scss']
 })
-export class LotofacilComponent implements OnInit {
-  lotofacil: any;
+export class QuinaComponent implements OnInit {
+  quina: any;
   spinner: boolean = false;
   
   constructor(public resultados: ResultadosService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.ultimoConcurso();
   }
 
   ultimoConcurso(){
     this.spinner = true;
-    this.resultados.getLotofacil()
+    this.resultados.getQuina()
     .then(response => {
-      this.lotofacil = response;
-      this.spinner = false;
+      this.quina = response;
       console.log(response);
+      
+      this.spinner = false;
     })
     .catch((error) => {
       Swal.fire({
@@ -32,7 +32,7 @@ export class LotofacilComponent implements OnInit {
         text: 'Não foi possível carregar o último sorteio. Tente buscar pelo número do sorteio.',
         icon: 'error'
       })
-      console.error(error);
+      // console.error(error);
     });
   }
 
@@ -41,18 +41,17 @@ export class LotofacilComponent implements OnInit {
     if (concurso === '' || concurso === null) {
       console.log('Vazio');
     }else{
-      this.lotofacilConcurso(String(concurso));
+      this.quinaConcurso(String(concurso));
     }
     
   }
 
-  lotofacilConcurso(numero: string){
+  quinaConcurso(numero: string){
     this.spinner = true;
-    this.resultados.getLotofacilSorteio(numero)
+    this.resultados.getQuinaSorteio(numero)
     .then(response => {
-      this.lotofacil = response;
+      this.quina = response;
       this.spinner = false;
-      console.log(response);
     })
     .catch((error) => {
       Swal.fire({
