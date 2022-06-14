@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'confereaqui'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1A73C2DA81924789A93A3F7C76546EFF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_076C2D6A52E24F99990AB4D2FF3308F4 }}
           package: .
