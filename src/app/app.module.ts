@@ -6,12 +6,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ResultadosComponent } from './resultados/resultados.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { LotofacilComponent } from './resultados/lotofacil/lotofacil.component';
+import { LotomaniaComponent } from './resultados/lotomania/lotomania.component';
+import { QuinaComponent } from './resultados/quina/quina.component';
+import { MegasenaComponent } from './resultados/megasena/megasena.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    HeaderComponent,
+    FooterComponent,
+    LotofacilComponent,
+    LotomaniaComponent,
+    QuinaComponent,
+    MegasenaComponent
   ],
   imports: [
     BrowserModule,

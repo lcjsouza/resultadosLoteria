@@ -1,0 +1,22 @@
+@import '../resultados.component.scss';
+
+.box-titulo-busca {
+  background: $color-megasena;
+  color: #fff;
+  border: 1px solid $color-megasena;
+}
+
+.box-resultados .box-dezenas-ganhadores .dezenas-ganhadores {
+  border: 1px solid $color-megasena;
+  align-items: center;
+}
+
+.numeros-sorteados {
+  width: 70% !important;
+
+  p {
+    border: 1px solid $color-megasena;
+    background: $color-megasena;
+    color: #fff;
+  }
+}

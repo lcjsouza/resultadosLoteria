@@ -1,0 +1,20 @@
+<header>
+  <div class="d-flex fundo-header">
+    <h1><a href="home">Resultados Loteria Federal</a></h1>
+    <div (click)="menuMobile()" class="menu-hambuguer">
+      <svg viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0 48H72V40H0V48ZM0 28H72V20H0V28ZM0 0V8H72V0H0Z"
+          fill="#000066"
+        />
+      </svg>
+    </div>
+  </div>
+  <!-- MENU MOBILE -->
+  <div *ngIf="exibirMenu" class="menu-mobile">
+    <li class="menus-li"><a href="lotofacil" class="links-a">Lotofácil</a></li>
+    <li class="menus-li"><a href="lotomania" class="links-a">Lotomania</a></li>
+    <li class="menus-li"><a href="quina" class="links-a">Quina</a></li>
+    <li class="menus-li"><a href="megasena" class="links-a">Mega-Sena</a></li>    
+  </div>
+</header>
