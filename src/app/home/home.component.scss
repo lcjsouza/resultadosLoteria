@@ -1,1 +1,62 @@
 @import '../app.component.scss';
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 52rem;
+  margin: 10rem 0;
+
+  .btn-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    color: #fff;
+  }
+
+  .btn-lotofacil {
+    background: #930989;
+    border: 1px solid #930989;
+    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 2rem;
+    width: 27.5rem;
+    height: 7rem;
+  }
+
+  .btn-lotomania {
+    background: #F78100;
+    border: 1px solid #F78100;
+    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 2rem;
+    width: 27.5rem;
+    height: 7rem;
+  }
+
+  .btn-quina {
+    background: #260085;
+    border: 1px solid #260085;
+    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 2rem;
+    width: 27.5rem;
+    height: 7rem;
+  }
+
+  .btn-mega {
+    background: #209869;
+    border: 1px solid #209869;
+    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 2rem;
+    width: 27.5rem;
+    height: 7rem;
+  }
+}

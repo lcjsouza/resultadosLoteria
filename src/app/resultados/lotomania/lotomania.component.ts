@@ -9,6 +9,7 @@ import * as $ from 'jquery';
 })
 export class LotomaniaComponent implements OnInit {
   lotomania: any;
+  spinner: boolean = false;
   
   constructor(public resultados: ResultadosService) { }
 
@@ -17,11 +18,12 @@ export class LotomaniaComponent implements OnInit {
   }
 
   ultimoConcurso(){
+    this.spinner = true;
     this.resultados.getLotomania()
     .then(response => {
       this.lotomania = response;
+      this.spinner = false;
       console.log(response);
-      
     })
     .catch(error => console.error(error)
     )

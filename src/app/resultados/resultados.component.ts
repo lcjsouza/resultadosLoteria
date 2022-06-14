@@ -7,6 +7,8 @@ import * as $ from 'jquery';
   styleUrls: ['./resultados.component.scss'],
 })
 export class ResultadosComponent implements OnInit {
+
+
   constructor() {}
 
   ngOnInit() {}

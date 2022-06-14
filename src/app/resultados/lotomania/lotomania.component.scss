@@ -1,4 +1,4 @@
-@import '../lotofacil/lotofacil.component.scss';
+@import '../resultados.component.scss';
 
 .box-titulo-busca {
   background: $color-lotomania;
@@ -8,4 +8,10 @@
 
 .box-resultados .box-dezenas-ganhadores .dezenas-ganhadores {
   border: 1px solid $color-lotomania;
+}
+
+.numeros-sorteados p {
+  border: 1px solid $color-lotomania;
+  background: $color-lotomania;
+  color: #fff;
 }

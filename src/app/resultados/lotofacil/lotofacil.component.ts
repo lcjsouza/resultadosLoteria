@@ -9,18 +9,21 @@ import * as $ from 'jquery';
 })
 export class LotofacilComponent implements OnInit {
   lotofacil: any;
+  spinner: boolean = false;
   
   constructor(public resultados: ResultadosService) { }
 
   ngOnInit(): void {
+    this.ultimoConcurso();
   }
 
   ultimoConcurso(){
+    this.spinner = true;
     this.resultados.getLotofacil()
     .then(response => {
       this.lotofacil = response;
+      this.spinner = false;
       console.log(response);
-      
     })
     .catch(error => console.error(error)
     )
