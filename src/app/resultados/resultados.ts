@@ -7,12 +7,12 @@ export interface ResultadosInterface {
     listaRateioPremio: ListarPremios[],
     valorArrecadado: number,
     valorAcumuladoProximoConcurso: number,
-    valorEstimadoProximoConcurso: number
+    valorEstimadoProximoConcurso: number,
+    tipoJogo: string
   }
-  
+
   export interface ListarPremios {
     descricaoFaixa: string,
     numeroDeGanhadores: number,
     valorPremio: number
   }
-  
