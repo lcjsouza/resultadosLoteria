@@ -10,8 +10,12 @@
   border: 1px solid $color-quina;
 }
 
-.numeros-sorteados p {
-  border: 1px solid $color-quina;
-  background: $color-quina;
-  color: #fff;
+.numeros-sorteados {
+  margin: 1.5rem;
+
+  p {
+    border: 1px solid $color-quina;
+    background: $color-quina;
+    color: #fff;
+  }
 }
