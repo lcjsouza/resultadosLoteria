@@ -1,8 +1,9 @@
 <main>
-    <div class="d-flex box-titulo-busca">
-      <h1>{{ quina.tipoJogo }}</h1>
-    </div>
-    <div class="box-resultados">
+  <div class="d-flex box-titulo-busca">
+    <h1>{{ quina.tipoJogo }}</h1>
+  </div>
+  <div class="box-resultados">
+    <div class="resultados-desktop">
       <div class="d-flex busca-concurso">
         <input id="n-concurso" type="text" placeholder="Buscar por concurso" />
         <button (click)="buscarConcurso()" class="btn-buscar">Buscar</button>
@@ -15,13 +16,23 @@
           Data do Sorteio: <span>{{ quina.dataApuracao }}</span>
         </h2>
       </div>
-      <div class="d-flex box-dezenas-ganhadores">
+    </div>
+    <div class="d-flex box-dezenas-ganhadores">
+      <div class="box-dezenas-desktop">
+        <!-- DEZENAS SORTEADAS -->
         <div class="d-flex dezenas-ganhadores">
           <h2 class="titulo-dezenas">Dezenas Sorteadas</h2>
           <div class="d-flex numeros-sorteados">
             <!-- SPINNER -->
-            <div *ngIf="spinner" class="d-flex justify-content-center">
-              <div class="spinner-border" style="width: 3rem; height: 3rem" role="status" >
+            <div
+              *ngIf="spinner"
+              class="d-flex justify-content-center spinner-posicao"
+            >
+              <div
+                class="spinner-border spinner-estilo"
+                style="width: 3rem; height: 3rem"
+                role="status"
+              >
                 <span class="sr-only">Loading...</span>
               </div>
             </div>
@@ -31,11 +42,19 @@
             </ng-container>
           </div>
         </div>
+        <!-- PREMIO -->
         <div class="dezenas-ganhadores ganhadores">
           <h2 class="titulo-dezenas">Premiação</h2>
           <!-- SPINNER -->
-          <div *ngIf="spinner" class="d-flex justify-content-center">
-            <div class="spinner-border" style="width: 3rem; height: 3rem" role="status" >
+          <div
+            *ngIf="spinner"
+            class="d-flex justify-content-center spinner-posicao"
+          >
+            <div
+              class="spinner-border spinner-estilo"
+              style="width: 3rem; height: 3rem"
+              role="status"
+            >
               <span class="sr-only">Loading...</span>
             </div>
           </div>
@@ -44,17 +63,21 @@
             <div class="info-ganhadores">
               <p>{{ premios.descricaoFaixa }}</p>
               <p *ngIf="premios.numeroDeGanhadores !== 0; else semGanhadores">
-                {{ premios.numeroDeGanhadores }} 
-                <span *ngIf="premios.numeroDeGanhadores === 1;  else ganhadores" >ganhador</span>
-                <ng-template #ganhadores>ganhadores</ng-template>, R$
-                {{ premios.valorPremio }}
+                {{ premios.numeroDeGanhadores }}
+                <span *ngIf="premios.numeroDeGanhadores === 1; else ganhadores"
+                  >ganhador</span
+                >
+                <ng-template #ganhadores>ganhadores</ng-template> - <strong>{{ premios.valorPremio }}</strong>
               </p>
               <ng-template #semGanhadores><p>-</p></ng-template>
             </div>
           </ng-container>
         </div>
-        <div class="dezenas-ganhadores ganhadores">
-          <!-- INFORMAÇÕES DO CONCURSO -->
+      </div>
+      <!-- MAIS INFORMAÇÕES -->
+      <div class="dezenas-ganhadores ganhadores info-desktop">
+        <!-- INFORMAÇÕES DO CONCURSO -->
+        <div class="maisInfo-desktop">
           <h2 class="titulo-dezenas">Informações do Concurso</h2>
           <div class="info-ganhadores info-concurso">
             <label>Município vencedor</label>
@@ -66,13 +89,15 @@
           </div>
           <div class="info-ganhadores info-concurso">
             <label>Arrecadação Total</label>
-            <p>R$ {{ quina.valorArrecadado }}</p>
+            <p>{{ quina.valorArrecadado }}</p>
           </div>
           <div class="info-ganhadores info-concurso">
             <label>Acumulado para Sorteio Especial</label>
-            <p>R$ {{ quina.valorAcumuladoConcursoEspecial }}</p>
+            <p>{{ quina.valorAcumuladoConcursoEspecial }}</p>
           </div>
-          <!-- PRÓXIMO CONCURSO -->
+        </div>
+        <!-- PRÓXIMO CONCURSO -->
+        <div class="maisInfo-desktop">
           <h2 class="titulo-dezenas proximo-concurso">Próximo Concurso</h2>
           <div class="info-ganhadores info-concurso">
             <label>Número</label>
@@ -84,10 +109,10 @@
           </div>
           <div class="info-ganhadores info-concurso">
             <label>Estimativa de prêmio</label>
-            <p>R$ {{ quina.valorEstimadoProximoConcurso }}</p>
+            <p>{{ quina.valorEstimadoProximoConcurso }}</p>
           </div>
         </div>
       </div>
     </div>
-  </main>
-  
+  </div>
+</main>

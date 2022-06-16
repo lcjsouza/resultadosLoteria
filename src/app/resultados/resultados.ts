@@ -8,6 +8,7 @@ export interface ResultadosInterface {
     valorArrecadado: number,
     valorAcumuladoProximoConcurso: number,
     valorEstimadoProximoConcurso: number,
+    valorAcumuladoConcursoEspecial: number,
     tipoJogo: string
   }
 

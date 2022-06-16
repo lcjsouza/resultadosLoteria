@@ -12,4 +12,5 @@ export class ResultadosComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
 }
