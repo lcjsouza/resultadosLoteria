@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   height: 52rem;
-  margin: 10rem 0;
+  margin: 10.2rem 0;
 
   .btn-home {
     display: flex;
@@ -18,45 +18,86 @@
     font-size: 2.5rem;
     line-height: 2rem;
     color: #fff;
+    width: 27.5rem;
+    height: 7rem;
+    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    border-radius: 2rem;
   }
+
+  // .btn-home:hover{
+  //   font-size: 3rem;
+  // }
 
   .btn-lotofacil {
     background: #930989;
     border: 1px solid #930989;
-    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
-    box-sizing: border-box;
-    border-radius: 2rem;
-    width: 27.5rem;
-    height: 7rem;
   }
 
   .btn-lotomania {
     background: #F78100;
     border: 1px solid #F78100;
-    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
-    box-sizing: border-box;
-    border-radius: 2rem;
-    width: 27.5rem;
-    height: 7rem;
   }
 
   .btn-quina {
     background: #260085;
     border: 1px solid #260085;
-    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
-    box-sizing: border-box;
-    border-radius: 2rem;
-    width: 27.5rem;
-    height: 7rem;
   }
 
   .btn-mega {
     background: #209869;
     border: 1px solid #209869;
-    box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.25);
-    box-sizing: border-box;
-    border-radius: 2rem;
-    width: 27.5rem;
-    height: 7rem;
+  }
+
+  @include fromMediumLarge {
+    margin: 15.6rem 0;
+
+    .btn-home {
+      width: 106rem;
+      font-size: 3rem;
+      line-height: 3.7rem;
+      text-transform: uppercase;
+    }
+
+    .btn-lotofacil {
+      background-color: #fff;
+      color: $color-lotofacil;
+
+      &:hover {
+        background-color: $color-lotofacil;
+        color: #fff;
+      }
+    }
+
+    .btn-lotomania {
+      background-color: #fff;
+      color: $color-lotomania;
+
+      &:hover {
+        background-color: $color-lotomania;
+        color: #fff;
+      }
+    }
+
+    .btn-quina {
+      background-color: #fff;
+      color: $color-quina;
+
+      &:hover {
+        background-color: $color-quina;
+        color: #fff;
+      }
+    }
+
+    .btn-mega {
+      background-color: #fff;
+      color: $color-megasena;
+
+      &:hover {
+        background-color: $color-megasena;
+        color: #fff;
+      }
+    }
+
   }
 }
