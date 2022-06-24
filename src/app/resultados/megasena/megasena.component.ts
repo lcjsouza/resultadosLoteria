@@ -24,17 +24,29 @@ export class MegasenaComponent implements OnInit {
       this.formatValor(response);
       this.megasena = response;
       this.spinner = false;
-      console.log(response);
     })
-    .catch((error) => {
-      Swal.fire({
-        title: '<p style="font-size: 2rem; font-weight: 700; color: #000066;">Ops !</p>',
-        html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Não foi possível carregar o último sorteio. Tente buscar pelo número do sorteio.</p>',
-        icon: 'error',
-        showCloseButton: true,
-        confirmButtonColor: '#209869'
-      })
+    .catch(async (error) => {
       this.spinner = false;
+      const { value: sorteio } = await Swal.fire({
+        title:
+          '<p style="font-size: 2rem; font-weight: 700; color: #000066;">Digite o número do concurso.</p>',
+        icon: 'question',
+        input: 'text',
+        inputPlaceholder: 'Ex: 1234',
+        showCloseButton: true,
+        confirmButtonColor: '#209869',
+        confirmButtonText: 'Buscar',
+        allowOutsideClick: false,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown',
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp',
+        },
+      });
+      if (sorteio) {
+        this.megasenaConcurso(sorteio);
+      }
     });
   }
 
@@ -46,12 +58,13 @@ export class MegasenaComponent implements OnInit {
         html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Nenhum concurso foi digitado.</p>',
         icon: 'error',
         showCloseButton: true,
+        allowOutsideClick: false,
         confirmButtonColor: '#209869'
       });
     }else{
       this.megasenaConcurso(String(concurso));
     }
-    
+
   }
 
   megasenaConcurso(numero: string){
@@ -62,7 +75,6 @@ export class MegasenaComponent implements OnInit {
       this.megasena = response;
       $('#n-concurso').val('');
       this.spinner = false;
-      console.log(response);
     })
     .catch((error) => {
       Swal.fire({
@@ -70,6 +82,7 @@ export class MegasenaComponent implements OnInit {
         html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Concurso não encontrado. Verifique o número digitado e tente novamente.</p>',
         icon: 'error',
         showCloseButton: true,
+        allowOutsideClick: false,
         confirmButtonColor: '#209869'
       });
       this.spinner = false;
@@ -85,7 +98,7 @@ export class MegasenaComponent implements OnInit {
       );
     }
 
-    return (      
+    return (
       (response.valorArrecadado = response.valorArrecadado.toLocaleString(
         'pt-br',
         { style: 'currency', currency: 'BRL' }

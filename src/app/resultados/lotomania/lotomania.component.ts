@@ -20,25 +20,35 @@ export class LotomaniaComponent implements OnInit {
 
   ultimoConcurso() {
     this.spinner = true;
-    this.resultados
-      .getLotomania()
-      .then((response) => {
-        this.formatValor(response);
-        this.lotomania = response;
-        this.spinner = false;
-        console.log(response);
-      })
-      .catch((error) => {
-        Swal.fire({
-          title:
-            '<p style="font-size: 2rem; font-weight: 700; color: #000066;">Ops !</p>',
-          html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Não foi possível carregar o último sorteio. Tente buscar pelo número do sorteio.</p>',
-          icon: 'error',
-          showCloseButton: true,
-          confirmButtonColor: '#F78100',
-        });
-        console.error(error);
+    this.resultados.getLotomania()
+    .then((response) => {
+      this.formatValor(response);
+      this.lotomania = response;
+      this.spinner = false;
+    })
+    .catch(async (error) => {
+      this.spinner = false;
+      const { value: sorteio } = await Swal.fire({
+        title:
+        '<p style="font-size: 2rem; font-weight: 700; color: #000066;">Digite o número do concurso.</p>',
+        icon: 'question',
+        input: 'text',
+        inputPlaceholder: 'Ex: 1234',
+        showCloseButton: true,
+        confirmButtonColor: '#F78100',
+        confirmButtonText: 'Buscar',
+        allowOutsideClick: false,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown',
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp',
+        },
       });
+      if (sorteio) {
+        this.lotomaniaConcurso(sorteio);
+      }
+    });
   }
 
   buscarConcurso() {
@@ -50,6 +60,7 @@ export class LotomaniaComponent implements OnInit {
         html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Nenhum concurso foi digitado.</p>',
         icon: 'error',
         showCloseButton: true,
+        allowOutsideClick: false,
         confirmButtonColor: '#F78100',
       });
     } else {
@@ -66,7 +77,6 @@ export class LotomaniaComponent implements OnInit {
         this.lotomania = response;
         $('#n-concurso').val('');
         this.spinner = false;
-        console.log(response);
       })
       .catch((error) => {
         this.spinner = false;
@@ -76,6 +86,7 @@ export class LotomaniaComponent implements OnInit {
           html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Concurso não encontrado. Verifique o número digitado e tente novamente.</p>',
           icon: 'error',
           showCloseButton: true,
+          allowOutsideClick: false,
           confirmButtonColor: '#F78100',
         });
         console.error(error);
@@ -91,7 +102,7 @@ export class LotomaniaComponent implements OnInit {
       );
     }
 
-    return (      
+    return (
       (response.valorArrecadado = response.valorArrecadado.toLocaleString(
         'pt-br',
         { style: 'currency', currency: 'BRL' }

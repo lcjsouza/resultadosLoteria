@@ -10,7 +10,7 @@ import { ResultadosService } from '../resultados.service';
 export class QuinaComponent implements OnInit {
   quina: any;
   spinner: boolean = false;
-  
+
   constructor(public resultados: ResultadosService) { }
 
   ngOnInit() {
@@ -23,18 +23,30 @@ export class QuinaComponent implements OnInit {
     .then(response => {
       this.formatValor(response);
       this.quina = response;
-      console.log(response);
       this.spinner = false;
     })
-    .catch((error) => {
-      Swal.fire({
-        title: '<p style="font-size: 2rem; font-weight: 700; color: #000066;">Ops !</p>',
-        html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Não foi possível carregar o último sorteio. Tente buscar pelo número do sorteio.</p>',
-        icon: 'error',
-        showCloseButton: true,
-        confirmButtonColor: '#260085'
-      })
+    .catch(async (error) => {
       this.spinner = false;
+      const { value: sorteio } = await Swal.fire({
+        title:
+        '<p style="font-size: 2rem; font-weight: 700; color: #000066;">Digite o número do concurso.</p>',
+        icon: 'question',
+        input: 'text',
+        inputPlaceholder: 'Ex: 1234',
+        showCloseButton: true,
+        confirmButtonColor: '#260085',
+        confirmButtonText: 'Buscar',
+        allowOutsideClick: false,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown',
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp',
+        },
+      });
+      if (sorteio) {
+        this.quinaConcurso(sorteio);
+      }
     });
   }
 
@@ -46,12 +58,13 @@ export class QuinaComponent implements OnInit {
         html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Nenhum concurso foi digitado.</p>',
         icon: 'error',
         showCloseButton: true,
+        allowOutsideClick: false,
         confirmButtonColor: '#260085'
       });
     }else{
       this.quinaConcurso(String(concurso));
     }
-    
+
   }
 
   quinaConcurso(numero: string){
@@ -69,6 +82,7 @@ export class QuinaComponent implements OnInit {
         html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Concurso não encontrado. Verifique o número digitado e tente novamente.</p>',
         icon: 'error',
         showCloseButton: true,
+        allowOutsideClick: false,
         confirmButtonColor: '#260085'
       });
       this.spinner = false;
@@ -84,7 +98,7 @@ export class QuinaComponent implements OnInit {
       );
     }
 
-    return (      
+    return (
       (response.valorArrecadado = response.valorArrecadado.toLocaleString(
         'pt-br',
         { style: 'currency', currency: 'BRL' }
