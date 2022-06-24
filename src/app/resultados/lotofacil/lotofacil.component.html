@@ -1,6 +1,6 @@
 <main>
   <div class="d-flex box-titulo-busca">
-    <h1>{{ lotofacil.tipoJogo }}</h1>
+    <h1>LOTOFACIL</h1>
   </div>
   <div class="box-resultados">
     <div class="d-flex busca-concurso">
@@ -52,7 +52,7 @@
           <div class="info-ganhadores">
             <p>{{ premios.descricaoFaixa }}</p>
             <p *ngIf="premios.numeroDeGanhadores !== 0; else semGanhadores">
-              {{ premios.numeroDeGanhadores }} 
+              {{ premios.numeroDeGanhadores }}
               <span *ngIf="premios.numeroDeGanhadores === 1;  else ganhadores" >ganhador</span>
               <ng-template #ganhadores>ganhadores</ng-template>, R$
               {{ premios.valorPremio }}
