@@ -14,31 +14,41 @@ export class LotofacilComponent implements OnInit {
 
   constructor(public resultados: ResultadosService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.ultimoConcurso();
   }
 
   ultimoConcurso() {
     this.spinner = true;
-    this.resultados
-      .getLotofacil()
-      .then((response) => {
-        this.formatValor(response);
-        this.lotofacil = response;
-        this.spinner = false;
-        console.log(response);
-      })
-      .catch((error) => {
-        Swal.fire({
-          title:
-            '<p style="font-size: 2rem; font-weight: 700; color: #000066;">Ops !</p>',
-          html: '<p style="font-size: 1.5rem; font-weight: 700; color: #000066;">Não foi possível carregar o último sorteio. Tente buscar pelo número do sorteio.</p>',
-          icon: 'error',
-          showCloseButton: true,
-          confirmButtonColor: '#930989',
-        });
-        this.spinner = false;
+    this.resultados.getLotofacil()
+    .then((response) => {
+      this.formatValor(response);
+      this.lotofacil = response;
+      this.spinner = false;
+    })
+    .catch(async (error) => {
+      this.spinner = false;
+      const { value: sorteio } = await Swal.fire({
+        title:
+        '<p style="font-size: 2rem; font-weight: 700; color: #000066;">Digite o número do concurso.</p>',
+        icon: 'question',
+        input: 'text',
+        inputPlaceholder: 'Ex: 1234',
+        showCloseButton: true,
+        confirmButtonColor: '#930989',
+        confirmButtonText: 'Buscar',
+        allowOutsideClick: false,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown',
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp',
+        },
       });
+      if (sorteio) {
+        this.lotofacilConcurso(sorteio);
+      }
+    });
   }
 
   buscarConcurso() {
@@ -51,6 +61,7 @@ export class LotofacilComponent implements OnInit {
         icon: 'error',
         showCloseButton: true,
         confirmButtonColor: '#930989',
+        allowOutsideClick: false,
       });
     } else {
       this.lotofacilConcurso(String(concurso));
@@ -66,7 +77,6 @@ export class LotofacilComponent implements OnInit {
         this.lotofacil = response;
         $('#n-concurso').val('');
         this.spinner = false;
-        console.log(response);
       })
       .catch((error) => {
         Swal.fire({
@@ -76,21 +86,23 @@ export class LotofacilComponent implements OnInit {
           icon: 'error',
           showCloseButton: true,
           confirmButtonColor: '#930989',
+          allowOutsideClick: false,
         });
         this.spinner = false;
       });
   }
-  
-  formatValor(response: any) {
 
+  formatValor(response: any) {
     for (let i = 0; i < response.listaRateioPremio.length; i++) {
-      response.listaRateioPremio[i].valorPremio = response.listaRateioPremio[i].valorPremio.toLocaleString(
-        'pt-br',
-        { style: 'currency', currency: 'BRL' }
-      );
+      response.listaRateioPremio[i].valorPremio = response.listaRateioPremio[
+        i
+      ].valorPremio.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL',
+      });
     }
 
-    return (      
+    return (
       (response.valorArrecadado = response.valorArrecadado.toLocaleString(
         'pt-br',
         { style: 'currency', currency: 'BRL' }
