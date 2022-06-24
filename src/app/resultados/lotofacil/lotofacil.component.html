@@ -1,6 +1,6 @@
 <main>
   <div class="d-flex box-titulo-busca">
-    <h1>{{ lotofacil.tipoJogo }}</h1>
+    <h1>LOTOFACIL</h1>
   </div>
   <div class="box-resultados">
     <div class="resultados-desktop">
@@ -24,15 +24,8 @@
           <h2 class="titulo-dezenas">Dezenas Sorteadas</h2>
           <div class="d-flex numeros-sorteados">
             <!-- SPINNER -->
-            <div
-              *ngIf="spinner"
-              class="d-flex justify-content-center spinner-posicao"
-            >
-              <div
-                class="spinner-border spinner-estilo"
-                style="width: 3rem; height: 3rem"
-                role="status"
-              >
+            <div *ngIf="spinner" class="d-flex justify-content-center spinner-posicao" >
+              <div class="spinner-border spinner-estilo" style="width: 3rem; height: 3rem" role="status" >
                 <span class="sr-only">Loading...</span>
               </div>
             </div>
@@ -46,15 +39,8 @@
         <div class="dezenas-ganhadores ganhadores">
           <h2 class="titulo-dezenas">Premiação</h2>
           <!-- SPINNER -->
-          <div
-            *ngIf="spinner"
-            class="d-flex justify-content-center spinner-posicao"
-          >
-            <div
-              class="spinner-border spinner-estilo"
-              style="width: 3rem; height: 3rem"
-              role="status"
-            >
+          <div *ngIf="spinner" class="d-flex justify-content-center spinner-posicao" >
+            <div class="spinner-border spinner-estilo" style="width: 3rem; height: 3rem" role="status" >
               <span class="sr-only">Loading...</span>
             </div>
           </div>
@@ -64,9 +50,7 @@
               <p>{{ premios.descricaoFaixa }}</p>
               <p *ngIf="premios.numeroDeGanhadores !== 0; else semGanhadores">
                 {{ premios.numeroDeGanhadores }}
-                <span *ngIf="premios.numeroDeGanhadores === 1; else ganhadores"
-                  >ganhador</span
-                >
+                <span *ngIf="premios.numeroDeGanhadores === 1; else ganhadores">ganhador</span>
                 <ng-template #ganhadores>ganhadores</ng-template> - <strong>{{ premios.valorPremio }}</strong>
               </p>
               <ng-template #semGanhadores><p>-</p></ng-template>
@@ -81,9 +65,7 @@
           <h2 class="titulo-dezenas">Informações do Concurso</h2>
           <div class="info-ganhadores info-concurso">
             <label>Município vencedor</label>
-            <ng-container
-              *ngFor="let infoConcurso of lotofacil.listaMunicipioUFGanhadores"
-            >
+            <ng-container *ngFor="let infoConcurso of lotofacil.listaMunicipioUFGanhadores" >
               <p>{{ infoConcurso.municipio }} - {{ infoConcurso.uf }}</p>
             </ng-container>
           </div>
